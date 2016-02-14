@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Domains Expiration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+        <div class="container clearfix">
+            <h1 id="logo">
+            Domain Expiration
+            </h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row add-row" >
+            <div class="col-md-2-offset-8">
+                <div class="add-div">
+                    <button href="#" data-toggle="modal-form" type="button" class="btn btn-primary" >Add Domain</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Creation Date</th>
+                        <th>Updated Date</th>
+                        <th>Expiration Date</th>
+                        <th>Register</th>
+                        <th>Last Info Date</th>
+                        <th></th>
+                    </tr>
+                    {% for domain in domains %}
+                        <tr id="tr-{{domain.name}}">
+                            <td><a href="http://{{domain.name}}" target="_blank">{{domain.name}}</a></td>
+                            <td>{{domain.creation_date}}</td>
+                            <td>{{domain.updated_date}}</td>
+                            <td>{{domain.expiration_date}}</td>
+                            <td>{{domain.register}}</td>
+                            <td>{{domain.last_info_date}}</td>
+                            <td><a href="#" data-name="{{domain.name}}" class="update">
+                                <div class="refresh-div">
+                                    <img  src="/static/loader.gif" class="refresh-img hide gif">
+                                    <img class="refresh-img img" src="/static/refresh.png">
+                                </div>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Add Domain</h4>
+          </div>
+          <div class="modal-body">
+              <form method="POST" class="form" id="submitDomain">
+              <div class="form-group">
+                <label for="domain">Domain</label>
+                <input name="domain" type="text" class="form-control" id="domain" placeholder="Domain.com">
+              </div>
+              <p class="text-error hide"></p>
+              <input type="submit" value="Send" class="btn btn-default" />
+             </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/static/main.js"></script>
+</body>
+</html>

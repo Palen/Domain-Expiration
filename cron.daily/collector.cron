@@ -1,0 +1,1 @@
+00 22 * * *  domain /var/www/main_collector.py > /var/log/domain/main_collector.log

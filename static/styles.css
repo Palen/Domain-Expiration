@@ -1,0 +1,44 @@
+@font-face {
+    font-family: robot;
+    src: url(robot.ttf);
+}
+
+body {
+    font-family: robot;
+}
+
+#logo{
+    text-align: center;
+}
+.add-div{
+    text-align: right;
+}
+.add-row{
+    padding-bottom: 20px;
+}
+.refresh-div{
+    width: 25px;
+    height: 25px
+}
+.refresh-img{
+    width: 100%;
+    height: auto;
+}
+.text-error{
+    color: red;
+}
+.rotate90 {
+    transform: rotate(90deg) translateY(-100%);
+    -webkit-transform: rotate(90deg) translateY(-100%);
+    -ms-transform: rotate(90deg) translateY(-100%);
+}
+.rotate180  {
+    transform: rotate(180deg) translate(-100%,-100%);
+    -webkit-transform: rotate(180deg) translate(-100%,-100%);
+    -ms-transform: rotate(180deg) translateX(-100%,-100%);
+}
+.rotate270 {
+    transform: rotate(270deg) translateX(-100%);
+    -webkit-transform: rotate(270deg) translateX(-100%);
+    -ms-transform: rotate(270deg) translateX(-100%);
+}
